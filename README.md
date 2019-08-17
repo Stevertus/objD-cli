@@ -5,4 +5,4 @@ With it you can generate a new project, run it, develop it further and publish i
 
 objd: https://stevertus.com/objD
 
-objd Open Source: 
+objd Open Source: https://github.com/Stevertus/objD
