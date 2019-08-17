@@ -24,7 +24,7 @@ main(List args,String path){
   if(!myargs.contains("-full")) myargs.add("-hotreload");
 
   stdin.listen((d){
-    if(String.fromCharCodes(d) == "r\r\n") run.main(myargs);
+    if(String.fromCharCodes(d) == "r\r\n") run.run(myargs);
   });
 
   watcher.events.listen((event) {
@@ -32,6 +32,6 @@ main(List args,String path){
     var t = stdin.readLineSync();
     print(t);
 
-    if(event.path.split('.').last == "dart") run.main(myargs);
+    if(event.path.split('.').last == "dart") run.run(myargs);
   });
 }

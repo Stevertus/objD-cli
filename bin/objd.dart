@@ -1,6 +1,7 @@
-import 'package:objd_cli/new.dart' as newPrj;
-import 'package:objd_cli/run.dart' as run;
-import 'package:objd_cli/serve.dart' as serve;
+import 'package:objd_cli/cli/new.dart' as newprj;
+import 'package:objd_cli/cli/run.dart' as run;
+import 'package:objd_cli/cli/serve.dart' as serve;
+import 'package:objd_cli/cli/server.dart' as server;
 import 'package:args/args.dart';
 
 ArgResults argResults;
@@ -13,6 +14,7 @@ main(List<String> arguments) {
         abbr: 'v', negatable: false, help: "Shows the objD CLI Version")
     ..addOption('source',
         abbr: 's', defaultsTo: ".", help: "Changes the source path")
+    ..addOption('out', help: "Overrides the target location of the project")
     ..addFlag('hotreload',negatable: false, help: "Enables hotreload")
     ..addFlag('min',negatable: false, help: "This minifies the file amount by ignoring the mcmeta and tag files")
     ..addFlag('prod',abbr: "p",negatable: false, help: "This creates a production build of your project")
@@ -27,12 +29,16 @@ main(List<String> arguments) {
   if (argResults['help'] || paths.isEmpty) return showHelp(argParser);
 
   switch (paths[0]) {
-    case 'new': newPrj.main(argResults,paths);
+    case 'new': newprj.main(argResults,paths);
       break;
     case 'run': run.main(argResults.arguments);
       break;
     case 'serve': serve.main(argResults.arguments,argResults['source']);
       break;
+    case 'server': server.main(argResults.arguments,argResults['source']);
+      break;
+    // case 'build': server.main(argResults.arguments,argResults['source']);
+    //   break;
 
     default: showHelp(argParser);
   }
@@ -45,9 +51,13 @@ Use objd [command] [args] or pub global run objd:[command] [args] to run command
 
 * new [project_name] - generates a new project from a boilerplate
 
-* run [project_root] - builds one project
+* run [project_root] - builds the project
 
-* serve [directory] [project_root] - watches the directory to change and builds the project on change
+* serve [project_root] - watches the current directory to change and builds the project on change with hotreload
+
+* server inject [jar_server] - injects a server into the cli to be able to run it
+
+* server start - Starts the server with the current directory as world.
 
 ${argParser.usage}  
   """);
