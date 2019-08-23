@@ -1,7 +1,5 @@
-import 'dart:convert';
-import 'dart:io';
 
-import 'package:path/path.dart' as p;
+import 'dart:io';
 import 'package:watcher/watcher.dart';
 import './run.dart' as run;
 main(List args,String path){
