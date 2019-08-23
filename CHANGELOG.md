@@ -1,3 +1,3 @@
-## 1.0.0
+## 0.0.1-beta.1
 
-- Initial version, created by Stagehand
+- Initial version, created by Stevertus

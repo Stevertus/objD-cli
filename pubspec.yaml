@@ -1,7 +1,7 @@
 name: objd_cli
-description: A sample command-line application.
-version: 0.0.1
-homepage: https://www.example.com
+description: The CLI Tool for objD
+version: 0.0.1-beta.1
+homepage: https://www.stevertus.com
 author: Stevertus <stevertusyt@gmail.com>
 
 environment:
@@ -11,7 +11,5 @@ dependencies:
  args: 1.5.2
  watcher: 0.9.7+12
  http:  0.12.0+2
-dev-dependencies:
-  gson:
 executables:
   objd:
