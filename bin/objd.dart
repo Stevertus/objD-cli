@@ -15,7 +15,7 @@ main(List<String> arguments) {
     ..addOption('source',
         abbr: 's', defaultsTo: ".", help: "Changes the source path")
     ..addOption('out', help: "Overrides the target location of the project")
-    ..addFlag('hotreload',negatable: false, help: "Enables hotreload")
+    ..addFlag('hotreload',abbr: "r",negatable: false, help: "Enables hotreload")
     ..addFlag('min',negatable: false, help: "This minifies the file amount by ignoring the mcmeta and tag files")
     ..addFlag('prod',abbr: "p",negatable: false, help: "This creates a production build of your project")
     ..addFlag('full',negatable: false, help: "Generates the full project(just for objd serve!).")
@@ -45,6 +45,38 @@ main(List<String> arguments) {
 }
 
 showHelp(ArgParser argParser){
+
+  if(argResults["version"]) print("""
+                    mhyshmN                  
+                NdyssssssssydN               
+             mhsssssssssssssssshm            
+         NdyssssssssssssssssssssssydN        
+     Nmhsssssssssssssssssssssssssssssshm     
+  mdysssssssssssssssssssssssssssssssssssshdN 
+ NyysssssssssssssssssssssssssssssssssssssssyN
+ Nyyyyysssssssssoosssssssssssssssssssssyyyyym
+ Nyyyyyyyyysssss. +ssssss+`.ss-...--/syyyyyym
+ Nyyyyyyyoosyyss. ++++osso/+ss. /ss+. +yyyyyN
+ Nyyyys- -:. :yy. .--``/so `yy. +yyys  syyyyN
+ Nyyyy- +yyy- +y. oyys  so `yy. +yyyy` oyyyyN
+ Nyyyy. oyyy: /y. oyyy  ys `yy. +yyy+ .yyyyyN
+ Nyyyys.`:/- :yy. .:/. /ys `yy. -:-.`:syyyyyN
+ myyyyyyso+oyyyyooyo+oyyys `yyooooosyyyyyyyyN
+ myyyyyyyyyyyyyyyyyyyyyy-``/yyyyyyyyyyyyyyyyN
+ myyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyN
+ myyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyN
+  Ndhyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyydm 
+     NmhyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyhdN    
+         mdhyyyyyyyyyyyyyyyyyyyyyyhdm        
+            NmhyyyyyyyyyyyyyyyyhmN           
+                mdyyyyyyyyyhdm               
+                   NdhyydmN                  
+                   
+------------------------------------------------
+  objD CLI Version 0.0.1-beta.2
+------------------------------------------------
+  """);
+
 print("""
 ** HELP **
 Use objd [command] [args] or pub global run objd:[command] [args] to run commands

@@ -1,7 +1,8 @@
 name: objd_cli
 description: The CLI Tool for objD
-version: 0.0.1-beta.1
-homepage: https://www.stevertus.com
+version: 0.0.1-beta.2
+homepage: https://objd.stevertus.com
+documentation: https://objd.stevertus.com/cli
 author: Stevertus <stevertusyt@gmail.com>
 
 environment:
