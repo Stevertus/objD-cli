@@ -14,11 +14,11 @@ class StarterPack extends Widget {
     return Pack(
       name: 'objdstart',  // name of the subpack TODO: Replace name
       main: File(         // definining a file that runs every tick
-        path: 'main',
+        'main',
         child: MainFile()
       ),
       load: File(         // definining a file that runs on reload
-        path: 'load',
+        'load',
         child: LoadFile()
       ),
       modules: [

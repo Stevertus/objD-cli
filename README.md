@@ -44,9 +44,9 @@ void main(List<String> args) {
 }
 ```
 This allows you to use the arguments in the execution command, like:
-* ```dart index.dart arg1 --min``` 
-* ```objd run index.dart arg1 --min``` 
-* ```objd serve . index.dart --min``` 
+* `dart index.dart arg1 --min` 
+* `objd run index.dart arg1 --min` 
+* `objd serve . index.dart --min` 
 
 **All Available Arguments:**
 * `--hotreload`: Saves the state of your project and compares just the latest changes.
