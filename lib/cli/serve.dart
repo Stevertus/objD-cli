@@ -19,16 +19,13 @@ main(List args,String path){
     run.main(args);
     
   // enable hotreload
-  if(!myargs.contains("-full")) myargs.add("-hotreload");
+  if(!myargs.contains("--full")) myargs.add("--hotreload");
 
   stdin.listen((d){
     if(String.fromCharCodes(d) == "r\r\n") run.run(myargs);
   });
 
   watcher.events.listen((event) {
-
-    var t = stdin.readLineSync();
-    print(t);
 
     if(event.path.split('.').last == "dart") run.run(myargs);
   });
