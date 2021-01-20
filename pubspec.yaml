@@ -3,7 +3,6 @@ description: The CLI Tool for objD
 version: 0.0.3
 homepage: https://objd.stevertus.com
 documentation: https://objd.stevertus.com/cli
-author: Stevertus <contact@stevertus.com>
 
 environment:
   sdk: ">=2.4.0 <3.0.0"
