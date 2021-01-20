@@ -1,9 +1,9 @@
 import 'dart:io';
 import 'dart:isolate';
 
-import 'package:objd_cli/utils/copy.dart';
-import 'package:objd_cli/utils/run_command.dart';
-import 'package:objd_cli/utils/start_server.dart';
+import 'package:objd_cli/src/utils/copy.dart';
+import 'package:objd_cli/src/utils/run_command.dart';
+import 'package:objd_cli/src/utils/start_server.dart';
 
 main(List<String> args, String source) {
   Isolate.resolvePackageUri(Uri.parse("package:objd_cli/repl")).then((Uri res) {
@@ -13,7 +13,7 @@ main(List<String> args, String source) {
     if (args[1] == "start") {
       if (source == null) source = ".";
 
-      copyFolder(source, server + "\\world\\").then((_){
+      copyFolder(source, server + "\\world\\").then((_) {
         startServer(server);
       });
 
@@ -24,10 +24,10 @@ main(List<String> args, String source) {
           print(err);
         }
       });
-    } else if(args[1] == "inject"){
-      if(args.length < 3) return print("Usage: server inject [path]");
-      if(!args[2].contains(".jar")) return print("Please inject a .jar file!");
-      copyFile(args[2], server + "\\run.jar").then((_){
+    } else if (args[1] == "inject") {
+      if (args.length < 3) return print("Usage: server inject [path]");
+      if (!args[2].contains(".jar")) return print("Please inject a .jar file!");
+      copyFile(args[2], server + "\\run.jar").then((_) {
         print("Injected ${args[2]} in the server");
       });
     }

@@ -1,7 +1,7 @@
-import 'package:objd_cli/cli/new.dart' as newprj;
-import 'package:objd_cli/cli/run.dart' as run;
-import 'package:objd_cli/cli/serve.dart' as serve;
-import 'package:objd_cli/cli/server.dart' as server;
+import 'package:objd_cli/src/cli/new.dart' as newprj;
+import 'package:objd_cli/src/cli/run.dart' as run;
+import 'package:objd_cli/src/cli/serve.dart' as serve;
+import 'package:objd_cli/src/cli/server.dart' as server;
 import 'package:args/args.dart';
 
 ArgResults argResults;
@@ -16,26 +16,41 @@ main(List<String> arguments) {
     ..addOption('out', help: "Overrides the target location of the project")
     ..addFlag('hotreload',
         abbr: "r", negatable: false, help: "Enables hotreload")
-    ..addFlag('min',
-        negatable: false,
-        help:
-            "This minifies the file amount by ignoring the mcmeta and tag files")
-    ..addFlag('prod',
-        abbr: "p",
-        negatable: false,
-        help: "This creates a production build of your project")
-    ..addFlag('full',
-        negatable: false,
-        help: "Generates the full project(just for objd serve!).")
-    ..addFlag('debug',
-        abbr: "d",
-        negatable: false,
-        help: "Creates a debug file that assembles the files")
-    ..addFlag('zip',
-        abbr: "z",
-        negatable: true,
-        help:
-            "Generates the project into a single Zip file ready for publishing");
+    ..addFlag(
+      'min',
+      negatable: false,
+      help:
+          "This minifies the file amount by ignoring the mcmeta and tag files",
+    )
+    ..addFlag(
+      'gen',
+      negatable: false,
+      help:
+          "Using this flag runs darts build_runner before objd to apply all necessary code generators",
+    )
+    ..addFlag(
+      'prod',
+      abbr: "p",
+      negatable: false,
+      help: "This creates a production build of your project",
+    )
+    ..addFlag(
+      'full',
+      negatable: false,
+      help: "Generates the full project(just for objd serve!).",
+    )
+    ..addFlag(
+      'debug',
+      abbr: "d",
+      negatable: false,
+      help: "Creates a debug file that assembles the files",
+    )
+    ..addFlag(
+      'zip',
+      abbr: "z",
+      negatable: true,
+      help: "Generates the project into a single Zip file ready for publishing",
+    );
 
   argResults = argParser.parse(arguments);
 
@@ -65,7 +80,9 @@ main(List<String> arguments) {
 }
 
 showHelp(ArgParser argParser) {
-  if (argResults["version"]) print("""
+  if (argResults["version"])
+    print(
+        """
                     mhyshmN                  
                 NdyssssssssydN               
              mhsssssssssssssssshm            
@@ -96,7 +113,8 @@ showHelp(ArgParser argParser) {
 ------------------------------------------------
   """);
 
-  print("""
+  print(
+      """
 ** HELP **
 Use objd [command] [args] or pub global run objd:[command] [args] to run commands
 

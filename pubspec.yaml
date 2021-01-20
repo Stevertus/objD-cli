@@ -1,16 +1,16 @@
 name: objd_cli
 description: The CLI Tool for objD
-version: 0.0.2
+version: 0.0.3
 homepage: https://objd.stevertus.com
 documentation: https://objd.stevertus.com/cli
-author: Stevertus <stevertusyt@gmail.com>
+author: Stevertus <contact@stevertus.com>
 
 environment:
-  sdk: '>=2.4.0 <3.0.0'
+  sdk: ">=2.4.0 <3.0.0"
 
 dependencies:
- args: ^1.5.2
- watcher: ^0.9.7+12
- http:  ^0.12.0+2
+  args: ^1.6.0
+  watcher: ^0.9.7+15
+  http: ^0.12.2
 executables:
   objd:
