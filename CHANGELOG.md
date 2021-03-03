@@ -1,3 +1,8 @@
+## 0.0.4
+
+- patched infinite cyle when using serve with --gen
+- added a few more helpful messages to give feedback what is happening
+
 ## 0.0.3
 
 - added --gen option to run `pub run build_runner build` before every generation
