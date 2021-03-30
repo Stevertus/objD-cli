@@ -1,3 +1,8 @@
+## 0.0.5
+
+- migrated to null safety
+- refactored code
+
 ## 0.0.4
 
 - patched infinite cyle when using serve with --gen

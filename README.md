@@ -74,7 +74,7 @@ This allows you to use the arguments in the execution command, like:
 The hotreload option is an experimental feature, that just looks at the things you changed since the last build. This can improve performance significantly especially for big projects with many generated mcfunctions.
 
 This feature is enabled by default for `objd serve`, if you include the args.
-You can disable it with the `-full` option.
+You can disable it with the `--full` option.
 
 **How it works:**
 

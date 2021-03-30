@@ -4,12 +4,12 @@ part 'starter_pack.g.dart';
 
 @Pck(name: 'objdstart')
 final starter = [
-  MainFile,
+  TickFile,
   LoadFile,
 ];
 
 @Func()
-final main = For.of([
+final tick = For.of([
   /// Write your main code here
 ]);
 
