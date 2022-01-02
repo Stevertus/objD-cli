@@ -16,7 +16,7 @@ objd [command] [args]
 OR
 
 ```
-pub global run objd:[command] [args]
+dart run objd_cli:objd [command] [args]
 ```
 
 > If the objd command is not available, you have to add the pub cache to your system path. Follow this tutorial: [https://www.dartlang.org/tools/pub/cmd/pub-global#running-a-script-from-your-path](https://www.dartlang.org/tools/pub/cmd/pub-global#running-a-script-from-your-path)

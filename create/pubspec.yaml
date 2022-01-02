@@ -1,8 +1,0 @@
-name: starter
-
-dependencies:
-  objd:
-
-dev_dependencies:
-  build_runner:
-  objd_gen:

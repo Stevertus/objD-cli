@@ -24,7 +24,7 @@ Future<void> copyFolder(String input, String output,
   var entities =
       await Directory(input).list(recursive: true, followLinks: false).toList();
   await Future.wait(entities.map<Future>((FileSystemEntity entity) async {
-    if (!(entity is File)) return;
+    if (entity is! File) return;
     var path = entity.path.replaceFirst(input, '');
     return await copyFile(entity.path, output + path, printRes);
   }).toList());
