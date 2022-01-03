@@ -1,6 +1,6 @@
 name: objd_cli
 description: The CLI Tool for objD
-version: 0.0.6
+version: 0.1.0
 homepage: https://objd.stevertus.com
 documentation: https://objd.stevertus.com/cli
 
