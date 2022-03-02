@@ -13,10 +13,25 @@ String readLineOr(String msg, String def) {
   return l != null && l.isNotEmpty ? l : def;
 }
 
+int readIntOr(String msg, int def, {int? max, int min = 0}) {
+  int? val;
+  do {
+    val = int.tryParse(readLineOr(
+      msg,
+      def.toString(),
+    ));
+    if (val == null) print('Please enter a number');
+  } while (val == null || (max != null && val > max) || val < min);
+  return val;
+}
+
 void createNew(ArgResults args, List<String> paths) async {
   if (paths.length < 2) return print('Usage: new <name>');
-  print('setting up new project...');
   final name = paths[1];
+  print('setting up new project $name...');
+  print(
+    'Welcome to the objD setup Wizard! To create a project, please answer following questions or accept the [default]:',
+  );
 
   var datapack = readLineOr('Datapack name: []', name + ' DP');
   var namespace = readLineOr(
@@ -24,6 +39,7 @@ void createNew(ArgResults args, List<String> paths) async {
     name.toLowerCase().replaceAll(RegExp(r'\s+'), '_'),
   );
 
+  // Fetch all available Templates
   final templateBody = await http
       .get(URI.resolve('trees/main'))
       .then((res) => json.decode(res.body));
@@ -36,16 +52,22 @@ void createNew(ArgResults args, List<String> paths) async {
   }
 
   var template = templates.keys.first;
-  int? tIndex;
-  do {
-    tIndex = int.tryParse(readLineOr(
-      'Select Project Template: []\n' +
-          templates.keys.mapIndexed((i, k) => '${i + 1}) $k').join('\n'),
-      '1',
-    ));
-    if (tIndex == null) print('Please enter a number');
-  } while (tIndex == null || tIndex > templates.length || tIndex < 1);
+  int tIndex = readIntOr(
+    'Select Project Template: []\n' +
+        templates.keys.mapIndexed((i, k) => '${i + 1}) $k').join('\n'),
+    1,
+    max: templates.length,
+    min: 1,
+  );
   template = templates.keys.toList()[tIndex - 1];
+
+  // Target Minecraft Version
+  int version = readIntOr(
+    'Target Minecraft Version: []\n',
+    18,
+    max: 25,
+    min: 8,
+  );
 
   void cloneFile(String path, String sourceUrl) async {
     final body = await http.get(Uri.parse(sourceUrl)).then(
@@ -62,8 +84,14 @@ void createNew(ArgResults args, List<String> paths) async {
       final contentB64 = body['content'] as String;
       final bytes = base64.decode(contentB64.replaceAll('\n', ''));
       final content = (utf8.decode(bytes))
+          .replaceAll(
+            '%Namespace%',
+            namespace[0].toUpperCase() +
+                namespace.substring(1).replaceAll('_', ''),
+          )
           .replaceAll('%namespace%', namespace)
-          .replaceAll('%project%', datapack);
+          .replaceAll('%project%', datapack)
+          .replaceAll('%version%', version.toString());
       await file.writeAsString(content);
       print('Cloned $path');
     }

@@ -1,8 +1,14 @@
+## 0.1.1
+
+- updated creation tool with clearer instructions
+- added version argument to creation tool
+- reorganized templates, renamed Pack classes
+
 ## 0.1.0
 
 - added new project creation tool which adjusts namespace and datapack folder syncing with https://github.com/Stevertus/objd-templates
 - implemented new objd arguments
-- changed run command `pub global run objd_cli:objd [cmd]` to `dart run objd_cli [cmd]`
+- changed run command `pub global run objd_cli:objd [cmd]` to `dart pub global run objd_cli [cmd]`
 - removed local template and cloning code
 - updated to Dart 2.15 and corresponding dependecies
 
